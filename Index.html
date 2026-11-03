@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nizar Academy | MBO 4</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f2f6f8;color:#172b40}
+header{background:#10253b;color:white;padding:28px 20px}
+header h1{margin:0;color:#72d6b1}
+header p{margin-bottom:0}
+nav{background:#173951;padding:14px;display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:14px}
+main{max-width:1000px;margin:25px auto;padding:0 16px}
+.card{background:white;padding:22px;border-radius:14px;margin-bottom:18px;box-shadow:0 2px 10px #0000000c}
+h2{color:#14785b}
+button{background:#14785b;color:white;border:0;padding:12px 18px;border-radius:8px;cursor:pointer;margin-top:8px}
+input,select{padding:11px;border:1px solid #ccd6df;border-radius:7px;width:100%;margin:7px 0}
+.lesson{padding:12px;background:#edf5f2;border-radius:8px;margin:8px 0}
+.stat{font-size:28px;font-weight:bold;color:#14785b}
+footer{text-align:center;padding:25px;color:#687887}
+</style>
+</head>
+<body>
+<header>
+<h1>NIZAR ACADEMY</h1>
+<p>Bedrijfsadministratie • MBO 4</p>
+<p>Leren – Oefenen – Boekhouden – Slagen!</p>
+</header>
+
+<nav>
+<a href="#dashboard">Dashboard</a>
+<a href="#lessen">Lessen</a>
+<a href="#oefenen">Oefeningen</a>
+<a href="#boekhouden">Boekhouden</a>
+<a href="#examen">Examens</a>
+</nav>
+
+<main>
+<section class="card" id="dashboard">
+<h2>Welkom bij Nizar Academy!</h2>
+<p>Jouw persoonlijke leeromgeving voor Bedrijfsadministratie MBO 4.</p>
+<p>Voltooide lessen:</p>
+<div class="stat" id="progress">0</div>
+<p>Blijf oefenen en verbeter je kennis!</p>
+</section>
+
+<section class="card" id="lessen">
+<h2>Mijn leermodules</h2>
+<div class="lesson">01 – Debet en Credit</div>
+<div class="lesson">02 – Grootboekrekeningen</div>
+<div class="lesson">03 – Journaalposten</div>
+<div class="lesson">04 – Inkoop en Verkoop</div>
+<div class="lesson">05 – BTW</div>
+<div class="lesson">06 – Debiteuren en Crediteuren</div>
+<div class="lesson">07 – Balans</div>
+<div class="lesson">08 – Resultatenrekening</div>
+<div class="lesson">09 – Afschrijvingen</div>
+<div class="lesson">10 – Proefbalans en Saldibalans</div>
+</section>
+
+<section class="card" id="oefenen">
+<h2>Oefening – Debet en Credit</h2>
+<p>Een onderneming ontvangt €500 op haar bankrekening. Wat gebeurt er met de bankrekening?</p>
+<button onclick="check(true)">Debet</button>
+<button onclick="check(false)">Credit</button>
+<p id="feedback"></p>
+</section>
+
+<section class="card" id="boekhouden">
+<h2>Boekhoudcalculator</h2>
+<label>Omzet exclusief BTW (€)</label>
+<input type="number" id="omzet" value="1000">
+<label>BTW-percentage</label>
+<select id="btw">
+<option value="21">21%</option>
+<option value="9">9%</option>
+<option value="0">0%</option>
+</select>
+<button onclick="calculate()">Bereken</button>
+<p id="resultaat"></p>
+</section>
+
+<section class="card" id="examen">
+<h2>Examenvoorbereiding</h2>
+<p>Bereid je voor op je MBO 4-examens.</p>
+<ul>
+<li>Theorievragen</li>
+<li>Rekenopdrachten</li>
+<li>Journaalposten</li>
+<li>Praktijkexamens</li>
+<li>Proefexamens</li>
+</ul>
+</section>
+</main>
+
+<footer>Nizar Academy © 2026 – Bedrijfsadministratie MBO 4</footer>
+
+<script>
+function check(correct){
+document.getElementById("feedback").textContent =
+correct ? "Correct! Een toename van Bank boek je Debet." :
+"Niet correct. Het juiste antwoord is Debet.";
+}
+function calculate(){
+let omzet=Number(document.getElementById("omzet").value);
+let btw=Number(document.getElementById("btw").value);
+let bedrag=omzet*btw/100;
+document.getElementById("resultaat").textContent=
+"BTW: €"+bedrag.toFixed(2)+
+" | Totaal inclusief BTW: €"+(omzet+bedrag).toFixed(2);
+}
+</script>
+</body>
+</html>
